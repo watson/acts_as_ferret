@@ -183,6 +183,18 @@ module ActsAsFerret
       aaf_index.find_ids(q, options, &block)
     end
 
+    # An implementation of http://rm.jkraemer.net/issues/show/161
+    def highlight(id, query, options = {})
+      aaf_index.highlight(id, query, options)
+    end
+
+    def document_number(id)
+      aaf_index.document_number(id)
+    end
+
+    def query_for_record(id)
+      aaf_index.query_for_record(id)
+    end
     
     protected
 

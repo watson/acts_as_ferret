@@ -28,12 +28,17 @@ module ActsAsFerret
     end
 
     def method_missing(method, *args, &block)
-      if (@ar_record && @use_record) || !@data.has_key?(method)
+      if [:highlight, :document_number, :query_for_record].include?(method.to_sym)
+        @model.send method, id, *args
+      elsif (@ar_record && @use_record) || !@data.has_key?(method)
         to_record.send method, *args, &block
       else
         @data[method]
       end
     end
+
+    # An implementation of http://rm.jkraemer.net/issues/show/161
+    def [](attr) method_missing(attr) end
 
     def respond_to?(name)
       methods.include?(name.to_s) || @data.has_key?(name.to_sym) || to_record.respond_to?(name)
