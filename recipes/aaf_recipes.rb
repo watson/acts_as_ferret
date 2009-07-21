@@ -70,7 +70,7 @@ namespace :ferret do
       rails_env = fetch(:rails_env, 'production')
       indexes = fetch(:ferret_indexes, [])
       if indexes.any?
-        run "cd #{current_path}; RAILS_ENV=#{rails_env} INDEXES='#{indexes.join(' ')}' #{rake} ferret:rebuild"
+        run "cd #{current_path}; LANG=da_DK.UTF-8 RAILS_ENV=#{rails_env} INDEXES='#{indexes.join(' ')}' #{rake} ferret:rebuild"
       end
     end
 
