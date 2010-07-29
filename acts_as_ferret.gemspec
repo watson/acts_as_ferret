@@ -1,19 +1,35 @@
 --- !ruby/object:Gem::Specification 
 name: acts_as_ferret
 version: !ruby/object:Gem::Version 
-  version: 0.4.4
+  prerelease: false
+  segments: 
+  - 0
+  - 4
+  - 8
+  version: 0.4.8
 platform: ruby
 authors: 
 - Jens Kraemer
-autorequire: acts_as_ferret
+autorequire: 
 bindir: bin
 cert_chain: []
 
-date: 2009-05-28 00:00:00 +02:00
+date: 2010-07-13 14:10:00 +02:00
 default_executable: aaf_install
-dependencies: []
-
-description: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: ferret
+  prerelease: false
+  requirement: &id001 !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        segments: 
+        - 0
+        version: "0"
+  type: :runtime
+  version_requirements: *id001
+description: Rails plugin that adds powerful full text search capabilities to ActiveRecord models.
 email: jk@jkraemer.net
 executables: 
 - aaf_install
@@ -91,7 +107,6 @@ files:
 - doc/demo/doc
 - doc/demo/doc/howto.txt
 - doc/demo/doc/README_FOR_APP
-- doc/demo/log
 - doc/demo/public
 - doc/demo/public/.htaccess
 - doc/demo/public/404.html
@@ -193,7 +208,7 @@ files:
 - doc/demo/vendor/plugins/will_paginate/test/pagination_test.rb
 - doc/monit-example
 - doc/README.win32
-- init.rb
+- rails/init.rb
 - install.rb
 - lib
 - lib/act_methods.rb
@@ -231,7 +246,9 @@ files:
 - tasks
 - tasks/ferret.rake
 has_rdoc: true
-homepage: http://projects.jkraemer.net/acts_as_ferret
+homepage: http://github.com/jkraemer/acts_as_ferret
+licenses: []
+
 post_install_message: 
 rdoc_options: []
 
@@ -241,20 +258,22 @@ required_ruby_version: !ruby/object:Gem::Requirement
   requirements: 
   - - ">="
     - !ruby/object:Gem::Version 
+      segments: 
+      - 0
       version: "0"
-  version: 
 required_rubygems_version: !ruby/object:Gem::Requirement 
   requirements: 
   - - ">="
     - !ruby/object:Gem::Version 
+      segments: 
+      - 0
       version: "0"
-  version: 
 requirements: []
 
-rubyforge_project: 
-rubygems_version: 1.3.1
+rubyforge_project: acts_as_ferret
+rubygems_version: 1.3.6
 signing_key: 
-specification_version: 2
+specification_version: 3
 summary: acts_as_ferret - Ferret based full text search for any ActiveRecord model
 test_files: []
 
