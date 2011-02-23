@@ -456,6 +456,8 @@ module ActsAsFerret
     # get objects for each model
     id_arrays.each do |model, id_array|
       next if id_array.empty?
+      # logger.debug "id array from index: #{id_array.inspect}"
+      
       model_class = model.constantize
 
       # merge conditions
@@ -484,20 +486,21 @@ module ActsAsFerret
     
     # order results as they were found by ferret, unless an AR :order
     # option was given
+    # logger.debug "unsorted result: #{result.map{|a| "#{a.id} / #{a.title} / #{a.ferret_rank}"}.inspect}"
     result.sort! { |a, b| a.ferret_rank <=> b.ferret_rank } unless find_options[:order]
+    # logger.debug "sorted result: #{result.map{|a| "#{a.id} / #{a.ferret_rank}"}.inspect}"
     return result
   end
   
   # combine our conditions with those given by user, if any
   def self.combine_conditions(conditions, additional_conditions = [])
-    returning conditions do
-      if additional_conditions && additional_conditions.any?
-        cust_opts = (Array === additional_conditions) ? additional_conditions.dup : [ additional_conditions ]
-        logger.debug "cust_opts: #{cust_opts.inspect}"
-        conditions.first << " and " << cust_opts.shift
-        conditions.concat(cust_opts)
-      end
+    if additional_conditions && additional_conditions.any?
+      cust_opts = (Array === additional_conditions) ? additional_conditions.dup : [ additional_conditions ]
+      logger.debug "cust_opts: #{cust_opts.inspect}"
+      conditions.first << " and " << cust_opts.shift
+      conditions.concat(cust_opts)
     end
+    return conditions
   end
 
   def self.build_field_config(fields)
