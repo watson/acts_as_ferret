@@ -1,13 +1,12 @@
 Gem::Specification.new do |s|
 
-	s.name = 'acts_as_ferret'
+	s.name = 'watson-acts_as_ferret'
 	s.version = '0.4.8.2'
-	s.authors = ['Jens Kraemer']
+	s.authors = ['Thomas Watson']
 	s.summary = 'acts_as_ferret - Ferret based full text search for any ActiveRecord model'
-	s.description = 'Rails plugin that adds powerful full text search capabilities to ActiveRecord models.'
-	s.email = 'jk@jkraemer.net'
-	s.homepage = 'http://github.com/jkraemer/acts_as_ferret'
-	s.rubyforge_project = 'acts_as_ferret'
+	s.description = 'Rails plugin that adds powerful full text search capabilities to ActiveRecord models. This is a fork of the original acts_as_ferret plugin by Jens Kraemer with some minor custom ajustments.'
+	s.email = 'w@tson.dk'
+	s.homepage = 'http://github.com/watson/acts_as_ferret'
 	
 	s.bindir = 'bin'
 	s.executables = ['aaf_install']
